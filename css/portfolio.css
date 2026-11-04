@@ -267,3 +267,21 @@ html.mx #matrix{opacity:.38}html.mx .hx,html.mx .mq2{background:transparent}
 
 /* jebakan bot di form kontak */
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ===== Perbaikan responsif HP (v2) ===== */
+@media(max-width:760px){
+  #pill{flex-wrap:wrap;justify-content:space-between;align-items:center;row-gap:6px;column-gap:8px;border-radius:22px;padding:8px 10px;top:10px;width:calc(100vw - 20px)}
+  #pill .logo{order:1;display:grid;width:32px;height:32px;font-size:12px}
+  #pill .ctl{order:2;margin-left:auto;gap:6px;font-size:11px}
+  #pill .ctl button{flex:none}
+  #pill .pills{order:3;flex:0 0 100%;width:100%;margin:0;gap:2px;padding:3px;justify-content:center;flex-wrap:wrap;overflow:visible;border-radius:18px}
+  #pill .pills a{flex:1 0 auto;text-align:center;padding:7px 9px;font-size:10.5px;letter-spacing:0}
+  .hx{padding-top:150px}
+  .ring text{font-size:11.5px;letter-spacing:.1em}
+}
+@media(max-width:380px){
+  #pill .pills a{padding:7px 6px;font-size:9.5px}
+  #pill .ctl #lang{font-size:10.5px}
+  .hx{padding-top:146px}
+}
+html,body{overflow-x:hidden}

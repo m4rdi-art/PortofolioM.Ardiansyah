@@ -15,7 +15,7 @@
  // muncul saat scroll + hitung angka
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');
   [].slice.call(e.target.querySelectorAll('[data-n]')).forEach(function(b){var t=parseFloat(b.dataset.n.replace(',','.')),f=b.dataset.n.indexOf('.')>-1?2:0,s=0;
-   var c=setInterval(function(){s+=t/30;if(s>=t){s=t;clearInterval(c)}b.textContent=s.toFixed(f)},30)});io.unobserve(e.target)})},{threshold:.15});
+   var c=setInterval(function(){s+=t/30;if(s>=t){s=t;clearInterval(c)}b.textContent=s.toFixed(f)},30)});io.unobserve(e.target)})},{threshold:0,rootMargin:'0px 0px -8% 0px'});
  $$('.rv').forEach(function(x){io.observe(x)});
  // filter proyek
  $$('.filters button').forEach(function(b){b.onclick=function(){
@@ -23,7 +23,7 @@
   $$('#plist [data-cat]').forEach(function(c){c.style.display=(b.dataset.f==='all'||c.dataset.cat===b.dataset.f)?'':'none'})}});
  // menu aktif saat scroll (halaman utama)
  var secs=$$('section[id]'),links=$$('.pills a:not([data-page])');
- if(secs.length)addEventListener('scroll',function(){var y=scrollY+140,cur='';secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id});if(cur==='skill')cur='tentang';
+ if(secs.length)addEventListener('scroll',function(){var y=scrollY+(innerWidth<761?200:140),cur='';secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id});if(cur==='skill')cur='tentang';
   links.forEach(function(x){x.classList.toggle('act',x.dataset.k===cur)})},{passive:true});
  // bahasa ID/EN
  var D={id:{home:'Beranda',about:'Tentang',projects:'Proyek',gallery:'Galeri',experience:'Pengalaman',contact:'Kontak',contactme:'Hubungi Saya',viewprojects:'Lihat Proyek',h_about:'Tentang',h_skill:'Skill',h_proj:'Proyek',h_exp:'Pengalaman',h_train:'Pelatihan & Seminar',h_contact:'Kontak',send:'Kirim Pesan',dlcv:'Unduh CV',resume:'Resume',h_flow:'Alur Sistem'},
